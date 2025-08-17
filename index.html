@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Colour Trading Game (Demo)</title>
+        <style>
+            body {
+                  font-family: Arial, sans-serif;
+                        text-align: center;
+                              background: #f4f4f9;
+                                    margin: 0;
+                                          padding: 20px;
+                                              }
+                                                  h1 { color: #333; }
+                                                      .btn {
+                                                            padding: 15px 30px;
+                                                                  margin: 10px;
+                                                                        font-size: 18px;
+                                                                              border: none;
+                                                                                    cursor: pointer;
+                                                                                          border-radius: 8px;
+                                                                                                color: white;
+                                                                                                    }
+                                                                                                        .red { background: red; }
+                                                                                                            .green { background: green; }
+                                                                                                                .result { font-size: 22px; margin-top: 20px; font-weight: bold; }
+                                                                                                                    .balance { font-size: 20px; margin-top: 15px; }
+                                                                                                                      </style>
+                                                                                                                      </head>
+                                                                                                                      <body>
+                                                                                                                        <h1>🎲 Colour Trading Game (Demo)</h1>
+                                                                                                                          <p>Choose a colour and see if you win!</p>
+                                                                                                                            
+                                                                                                                              <button class="btn red" onclick="play('Red')">Red</button>
+                                                                                                                                <button class="btn green" onclick="play('Green')">Green</button>
+
+                                                                                                                                  <div class="result" id="result"></div>
+                                                                                                                                    <div class="balance" id="balance">Balance: 1000 Coins</div>
+
+                                                                                                                                      <script>
+                                                                                                                                          let balance = 1000;
+                                                                                                                                              let bet = 100;
+
+                                                                                                                                                  function play(choice) {
+                                                                                                                                                        let colors = ["Red", "Green"];
+                                                                                                                                                              let outcome = colors[Math.floor(Math.random() * colors.length)];
+
+                                                                                                                                                                    let resultMsg = "";
+                                                                                                                                                                          if (choice === outcome) {
+                                                                                                                                                                                  balance += bet;
+                                                                                                                                                                                          resultMsg = `✅ You Win! Outcome: ${outcome}`;
+                                                                                                                                                                                                } else {
+                                                                                                                                                                                                        balance -= bet;
+                                                                                                                                                                                                                resultMsg = `❌ You Lose! Outcome: ${outcome}`;
+                                                                                                                                                                                                                      }
+
+                                                                                                                                                                                                                            document.getElementById("result").innerText = resultMsg;
+                                                                                                                                                                                                                                  document.getElementById("balance").innerText = "Balance: " + balance + " Coins";
+                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                        </script>
+                                                                                                                                                                                                                                        </body>
+                                                                                                                                                                                                                                        </html>
